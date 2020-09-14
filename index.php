@@ -1,8 +1,8 @@
 <?php
 
-include './lib/Tracer.php';
+include 'lib/Tracer.php';
 
-$tracer = new \classes\Tracer();
+$tracer = new \lib\Tracer();
 
 $origin = 'Logroño';
 $destiny = 'Ciudad Real';
