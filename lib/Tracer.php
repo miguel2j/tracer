@@ -71,6 +71,7 @@ class Tracer
         $shortRoutes = $this->getItirenary($shortRoutes);
 
         $resultHTML .= '<h1>The cheapest journey/s from <span style = "color: blue">' . $this->cities[$origin] . '</span> to: <span style="color: blue">' . $this->cities[$destiny] . '</span> would be the next/s:</h1>
+            <h3>Ruta 1:</h3>
             <table style="border: 1px solid black; margin-bottom: 2vh">
                     <thead>
                         <th>Origin</th>
@@ -78,7 +79,7 @@ class Tracer
                     </thead>
                     <tbody>';
 
-        foreach ($shortRoutes as $trip){
+        foreach ($shortRoutes as $indexShort => $trip){
             if (is_int($trip)) {
                 if ($trip < 0 || is_string($trip)) {
                     $trip = abs($trip);
@@ -97,7 +98,8 @@ class Tracer
                     if ($indexTrip < 0 || is_string($indexTrip)) {
                         $indexTrip = abs($indexTrip);
                         if ($close){
-                            $resultHTML .= '<table style="border: 1px solid black; margin-bottom: 2vh">
+                            $resultHTML .= '<h3>Ruta ' .($indexShort+1). ':</h3>
+                                <table style="border: 1px solid black; margin-bottom: 2vh">
                                 <thead>
                                     <th>Origin</th>
                                     <th>Destiny</th>
@@ -112,7 +114,8 @@ class Tracer
                             </tr>';
                     } else {
                         if ($close){
-                            $resultHTML .= '<table style="border: 1px solid black; margin-bottom: 2vh">
+                            $resultHTML .= '<h3>Ruta ' .($indexShort+1). ':</h3>
+                                <table style="border: 1px solid black; margin-bottom: 2vh">
                                 <thead>
                                     <th>Origin</th>
                                     <th>Destiny</th>
