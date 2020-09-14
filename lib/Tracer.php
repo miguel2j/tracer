@@ -70,8 +70,8 @@ class Tracer
 
         $shortRoutes = $this->getItirenary($shortRoutes);
 
-        $resultHTML .= '<h1>The cheapest journey/s from <span style = "color: blue">' . $this->cities[$origin] . '</span> to: <span style="color: blue">' . $this->cities[$destiny] . '</span> would be the next/s:</h1>
-            <h3>Ruta 1:</h3>
+        $resultHTML .= '<h1>The cheapest journey/s from <span style = "color: blue">' . $this->cities[$origin] . '</span> to <span style="color: blue">' . $this->cities[$destiny] . '</span> are be the next/s:</h1>
+            <h3>Route 1:</h3>
             <table style="border: 1px solid black; margin-bottom: 2vh">
                     <thead>
                         <th>Origin</th>
@@ -98,7 +98,7 @@ class Tracer
                     if ($indexTrip < 0 || is_string($indexTrip)) {
                         $indexTrip = abs($indexTrip);
                         if ($close){
-                            $resultHTML .= '<h3>Ruta ' .($indexShort+1). ':</h3>
+                            $resultHTML .= '<h3>Route ' .($indexShort+1). ':</h3>
                                 <table style="border: 1px solid black; margin-bottom: 2vh">
                                 <thead>
                                     <th>Origin</th>
@@ -114,7 +114,7 @@ class Tracer
                             </tr>';
                     } else {
                         if ($close){
-                            $resultHTML .= '<h3>Ruta ' .($indexShort+1). ':</h3>
+                            $resultHTML .= '<h3>Route ' .($indexShort+1). ':</h3>
                                 <table style="border: 1px solid black; margin-bottom: 2vh">
                                 <thead>
                                     <th>Origin</th>
