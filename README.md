@@ -1,11 +1,12 @@
-# tracer
+# Tracer
 
 ## Ejecutar prueba de libreria
 
-* Apunte su servidor de apahce hacia esta ruta.
+* Apunte su servidor de apahce hacia la ruta donde situe la carpeta de este repositorio.
 * Abrir index.php en el navegador
 
-Una vez abierto, seguimos.
+
+# Funciones
 
 ## Ejercicio1: ruta más económiga de Logroño a Ciudad Real
 
