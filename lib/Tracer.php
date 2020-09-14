@@ -29,6 +29,7 @@ class Tracer
         return $this->cities;
     }
 
+    //obtiene los viajes que existen
     private function getTableTrips(){
         foreach ($this->connections as $indexOrigin => $conection){
             foreach ($conection as $indexDestiny => $cost) {
@@ -44,6 +45,7 @@ class Tracer
         }
     }
 
+    //devuelve codigo html con la ruta mas economica entre el origen y el destino
     public function getMinCostRoute($origin, $destiny){
         $origin = array_keys($this->cities, $origin)[0];
         $destiny = array_keys($this->cities, $destiny)[0];
@@ -55,6 +57,8 @@ class Tracer
         array_push($currentRoute, $origin);
         $this->getRoutes($origin, $destiny, $currentRoute);
 
+        //obtiene la ruta mas economica de entre todas las rutas posibles
+        $shortRoutes = array();
         $currentCost = -1;
         foreach ($this->itinerarys as $itinerary){
             if ($currentCost > $itinerary['cost'] || $currentCost == -1){
@@ -67,7 +71,6 @@ class Tracer
                 continue;
             }
         }
-
         $shortRoutes = $this->getItirenary($shortRoutes);
 
         $resultHTML .= '<h1>The cheapest journey/s from <span style = "color: blue">' . $this->cities[$origin] . '</span> to <span style="color: blue">' . $this->cities[$destiny] . '</span> are be the next/s:</h1>
@@ -142,6 +145,7 @@ class Tracer
         return $resultHTML;
     }
 
+    //devuelve codigo html con la ruta mas economica entre el origen y todos los destinos
     public function getMinCostAllRoute($origin){
         $resultHTML = '';
 
@@ -155,6 +159,7 @@ class Tracer
         return $resultHTML;
     }
 
+    //obtiene todas las rutas posibles entre el origej y el destino
     private function getRoutes($origin, $destiny, $currentRoute, $currentCost = 0, $tried = array()){
         foreach ($this->connections[$origin] as $indexConection => $cost){
             if ($cost == 0){
@@ -185,16 +190,18 @@ class Tracer
         }
         return false;
     }
-    
-    private function existRoute($tabla, $check){
-        foreach ($tabla as $itinerario){
-            if ($itinerario['origin'] == $check['destiny'] && $itinerario['destiny'] == $check['origin']){
+
+    //devuelve un boolean true si exisete el valor de $in dentro del array $used
+    private function existRoute($used, $in){
+        foreach ($used as $itinerary){
+            if ($itinerary['origin'] == $in['destiny'] && $itinerary['destiny'] == $in['origin']){
                 return true;
             }
         }
         return false;
     }
 
+    //obtiene los viajes dadas las posiciones posibles del array $routes
     private function getItirenary($routes){
         $trips = array();
         $currentTrip = array();
@@ -218,6 +225,7 @@ class Tracer
         return $trips;
     }
 
+    //obtiene el viaje existente para ir del punto origen al punto de destino dados
     private function getTrip($origin, $destiny){
         foreach ($this->tableTrips as $indexTrip => $trip){
             if ($trip['origin'] == $this->cities[$origin] && $trip['destiny'] == $this->cities[$destiny]){
@@ -232,6 +240,7 @@ class Tracer
         return false;
     }
 
+    //devuelve un boolean true si esa ruta ya esta siendo usada
     private function used($route){
         foreach ($this->itinerarys as $itinerary){
             if ($itinerary['route'] === $route){
