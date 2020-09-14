@@ -70,11 +70,11 @@ class Tracer
 
         $shortRoutes = $this->getItirenary($shortRoutes);
 
-        $resultHTML .= '<h1>El trayecto/s más económico/s desde <span style="color: blue">' . $this->cities[$origin] . '</span> hasta: <span style="color: blue">' . $this->cities[$destiny] . '</span> sería/n el/los siguiente/s:</h1>
+        $resultHTML .= '<h1>The cheapest journey/s from <span style = "color: blue">' . $this->cities[$origin] . '</span> to: <span style="color: blue">' . $this->cities[$destiny] . '</span> would be the next/s:</h1>
             <table style="border: 1px solid black; margin-bottom: 2vh">
                     <thead>
-                        <th>Origen</th>
-                        <th>Destino</th>
+                        <th>Origin</th>
+                        <th>Destiny</th>
                     </thead>
                     <tbody>';
 
@@ -99,8 +99,8 @@ class Tracer
                         if ($close){
                             $resultHTML .= '<table style="border: 1px solid black; margin-bottom: 2vh">
                                 <thead>
-                                    <th>Origen</th>
-                                    <th>Destino</th>
+                                    <th>Origin</th>
+                                    <th>Destiny</th>
                                 </thead>
                                 <tbody>';
 
@@ -114,8 +114,8 @@ class Tracer
                         if ($close){
                             $resultHTML .= '<table style="border: 1px solid black; margin-bottom: 2vh">
                                 <thead>
-                                    <th>Origen</th>
-                                    <th>Destino</th>
+                                    <th>Origin</th>
+                                    <th>Destiny</th>
                                 </thead>
                                 <tbody>';
 
@@ -134,7 +134,7 @@ class Tracer
         }
 
         $resultHTML .= '</tbody></table>
-                    <div style="border-bottom: 1px solid black"><h2>El coste total seria: ' .$currentCost. '</h2></div>';
+                    <div style="border-bottom: 1px solid black"><h2>Total Cost: ' .$currentCost. '</h2></div>';
 
         return $resultHTML;
     }

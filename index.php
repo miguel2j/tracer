@@ -13,9 +13,9 @@ if (isset($_POST['city'])){
     $getAllRoutes = '';
 }
 
-echo '<h1>EJERCICIO 1:</h1><br><br>' .$tracer->getMinCostRoute($origin,$destiny). '
+echo '<h1>Exercise 1:</h1><br><br>' .$tracer->getMinCostRoute($origin,$destiny). '
     <br><br>
-    <h1>EJERCICIO 2:</h1>
+    <h1>Exercise 2:</h1>
     <form id="form" action="" method="post">
         <select id="city" name="city" onchange="changeSelectCity()">
             <option value="-1">Select...</option>';
