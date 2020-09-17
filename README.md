@@ -8,7 +8,7 @@
 
 # Funciones
 
-## Ejercicio1: ruta más económiga de Logroño a Ciudad Real
+## Ejercicio1: ruta más económica de Logroño a Ciudad Real
 
 * La resolución de este aparecera dentro del apartado "Exercise 1" 
 
